@@ -33,6 +33,18 @@
 ## 1. 研究领域与最新相关文章 (Research latest articles by area)
 ### Word representation
 
+> Active Learning
+
+- AAAI2017. Active Discriminative Text Representation Learning. Ye Zhang et.al
+    
+    文章使用主动学习来学习word embedding，主动学习的关键是：挑选样例使得模型收益最大，主要有一下三种方法：
+    - 随机挑选
+    - 不确定性采样，一般使用熵
+    - 期望梯度长度
+
+    文章主要使用第三种方法，分为了两种：使得word embedding 梯度最大的样例来学习。2. 使得softmax分类线性层参数梯度最大的样例学习。最后对比了主动学习上面所提到的几种方法在文本分类中的performance。
+
+
 
 
 ### Sentence representation
