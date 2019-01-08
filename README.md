@@ -61,9 +61,18 @@
 本文中使用LSTM来融合char做word embedding
 
 > Ambiguity
+ 
  - ICLR2017-Multimodal Word Distributions
  
-    文章提出使用GMM分布来学习词的多个语义
+    文章提出使用GMM分布来学习词的多个语义(对GMD不太了解的我，没太看懂)
+
+- EMNLP2017 Outta Control: Laws of Semantic Change and Inherent Biases in Word Representation Models
+    文章主要研究歧义词的词意的改变和时间的关系。
+    通过研究历史学的语料(1990-1999)，文中发现，词意的改变并不是跟时间有完全的关系
+    - 词频与词意的改变是负相关的
+    - 歧义的多少与词意的改变正相关
+    - 词在相应类别中的代表性与词意改变负相关
+    
     
 > Ngram
 
@@ -71,8 +80,15 @@
     文章提出了使用Ngram来训练skip-gram的word embedidng，把每个Ngram都作为一个unique的embedding，在训练word2Ngram时，不仅中心word要预测
     周边的Ngram，同时也要预测周边的word。Ngram2Ngram相同。实验对比了word和Ngram的不同组合形式(Ngram2Ngram相同, )训练出来的Ngram embedding，
     还有使用不同的训练方法训练出来的embedding包括SGNS, GloVe, PPMI, and SVD
+    实验结果在word similarity和analogy表明，Ngram训练是有优势的，同时在neiberhoods中，ngram同样可以学习出近义词，甚至学的更好
 
+- ENMLP2017 Nonsymbolic Text Representation
+    文章主要是做了一个探索性的实验，目的是证明，在不用空格分词的情况下，在某些实验上也能得到还可以的表现。
 
+- EMNLP2017 Unsupervised Learning of Sentence Embeddings using Compositional n-Gram Features
+    文章提出一种新的Sentence Embedding模型Sent2Vec，使用了Ngram来辅助无监督Sentence Embedding的任务。具体做法是对句子的Ngram(包括unigram)求和然后求平均来表示句子，通过预测缺失的单词来训练词向量。同时文章也提出了方法屏蔽词频的影响。
+    实验在GLUE的数据集上对比了一些常见的sentence表示的方法，并没有在所有的任务中表现SOA。
+    
 > Transfer learning
 
 - Discourse-Based Objectives for Fast Unsupervised Sentence Representation Learning
@@ -83,6 +99,8 @@
 三个任务可以一起学习，也可以pipeline的学习。实验在几个简单的分类数据集上证明了在速度上有提升，且在分类acc上有限度的下降。
 
 ### Sentence representation
+
+
 
 ### Exploration experiments
 
