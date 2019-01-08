@@ -56,9 +56,11 @@
     - 在句法形态评估任务上效果较为显著。
     
 - EMNLP2017 Mimicking Word Embeddings using Subword RNNs
-    佐治亚理工的工作，很easy也很work的想法，文章主要用subword的信息来解决OOV问题
-训练subword的表示方法：把char embedding表示的word和pre-train的word embedding做欧式距离损失，最后直接用char embedding来表示单词
-本文中使用LSTM来融合char做word embedding
+
+    佐治亚理工的工作，很easy也很work的想法，文章主要用subword的信息来解决OOV问题训练subword的表示方法：把char embedding表示的word和pre-train的word embedding做欧式距离损失，最后直接用char embedding来表示单词本文中使用LSTM来融合char做word embedding
+
+- EMNLP2018 Adapting Word Embeddings to New Languages with Morphological and Phonological Subword Representations
+**待完成**
 
 > Ambiguity
  
@@ -89,6 +91,10 @@
     文章提出一种新的Sentence Embedding模型Sent2Vec，使用了Ngram来辅助无监督Sentence Embedding的任务。具体做法是对句子的Ngram(包括unigram)求和然后求平均来表示句子，通过预测缺失的单词来训练词向量。同时文章也提出了方法屏蔽词频的影响。
     实验在GLUE的数据集上对比了一些常见的sentence表示的方法，并没有在所有的任务中表现SOA。
     
+- ICLR2018 A NEW METHOD OF REGION EMBEDDING FOR TEXT CLASSIFICATION
+
+    百度研究院2018的工作。在文本分类中，词袋模型有它的限制。他对单词的表示没有包含单词的顺序信息。N-gram解决了这一问题，但n-gram也有局限: 当n较大时，通常导致数据缺失。在新模型中，region embedding有两部分组成：单词本身的embedding有向量表示，联系上下文的embedding由词向量与上下文关联的矩阵表示。文本看作是region embedding的集合。在文本分类的实验中(主要是Yelp Dataset)大多数实验有提升
+    
 > Transfer learning
 
 - Discourse-Based Objectives for Fast Unsupervised Sentence Representation Learning
@@ -98,9 +104,19 @@
 3. Conjunction Prediction，取具有连接词开头的句子，然后去掉连接词，让模型去预测
 三个任务可以一起学习，也可以pipeline的学习。实验在几个简单的分类数据集上证明了在速度上有提升，且在分类acc上有限度的下降。
 
+> Others
+
+- ICLR2019 Adaptive Input Representations for Neural Language Modeling
+
+    FB2019的工作。文章主要借鉴adaptive softmax的想法，使用词的词频对词进行聚簇，文中设定5个簇，每个簇的embedding用不同维度去表示。然后对每一个簇设置一个矩阵，目的是把词映射到相同的维度。目的是去对高频的Word embedding进行表示能力的提升，较少低频词的过拟合。实验在BILLION WORD、WIKITEXT-103对比了CharCNN,Subword的模型，有perplexity提升。
+
 ### Sentence representation
 
+> Context Information
 
+- EMNLP2017 A Deep Neural Network Sentence Level Classification Method with Context Information
+
+    文章主要使用了LSTM+CNN的结构，同时使用FOFE编码上下文句子来辅助句子分类任务。 这里面对的问题是，对于句子分类任务，文中把这个句子称作是Focus，其他的句子分Left、Right。 因为句子分类任务是没有上下文的，实验中作者是通过查找数据集来源，来补充上下文句子。 文章的实验主要证明了FOFE or Context信息有用。
 
 ### Exploration experiments
 
