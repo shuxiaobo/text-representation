@@ -75,6 +75,9 @@
     - 歧义的多少与词意的改变正相关
     - 词在相应类别中的代表性与词意改变负相关
     
+- ICLR2017 Beyond Bilingual: Multi-sense Word Embeddings using Multilingual Context
+    
+    过往的一词多义问题通过context来进行解决。近来也有学者发现使用多语言解决一词多义问题，因为对于相同单词不同含义在其他语言中可能对应着不同的单词，但是之前的方法大多存在固定一个多义词含义数量的问题。本文通过multi-view Bayesian non-parametric方法在多语言上解决之前的限制。
     
 > Ngram
 
