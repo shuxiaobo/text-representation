@@ -2,7 +2,7 @@
 
 - Text representation works, such as : paper, code, review, datasets, blogs, thesis and so on. 
 
-- This repository is created for the researchers who are interested in text representation. The scope of text representation including: word embedding, sentence embedding, exploration experiments and RNN module (or some else like VAE). this repository will give the lastest and full works from the everywhere I touch on. Hope your reply and suggestion, thanks.
+- This repository is created for the researchers who are interested in text representation. The scope of text representation including: word embedding, sentence embedding, exploration experiments and RNN module (or some else like VAE). this repository will give the latest and full works from the everywhere I touch on. Hope your reply and suggestion, thanks.
 
 ## 目录 Table of contents
 
@@ -33,7 +33,7 @@
 ## 1. 研究领域与最新相关文章 (Research latest articles by area)
 ### Word representation (#18)
 
-> Active Learning
+> Active Learning (#1)
 
 - AAAI2017. Active Discriminative Text Representation Learning. Ye Zhang et.al
     
@@ -45,7 +45,7 @@
     文章主要使用第三种方法，分为了两种：使得word embedding 梯度最大的样例来学习。2. 使得softmax分类线性层参数梯度最大的样例学习。最后对比了主动学习上面所提到的几种方法在文本分类中的performance。
 
 
-> Subword && OOV
+> Subword && OOV (#5)
 
 - TACL2017-Enriching Word Vectors with Subword Information
     本篇文章通过建立一个 Subword 词典，来丰富word的信息，比如where的subword是<wh, whe, her, ere, re>这样的，词的表示是embedding(word) + \sum embedding(n-gram)，使用Skip-gram来训练词向量，是一个无监督训练模型。
@@ -59,7 +59,7 @@
 
     佐治亚理工的工作，很easy也很work的想法，文章主要用subword的信息来解决OOV问题训练subword的表示方法：把char embedding表示的word和pre-train的word embedding做欧式距离损失，最后直接用char embedding来表示单词本文中使用LSTM来融合char做word embedding
 
-- EMNLP2018 Generalizing Word Embeddings using Bag of Subwords
+- EMNLP2018 [Generalizing Word Embeddings using Bag of Subwords](https://arxiv.org/pdf/1809.04259.pdf)
     之前的word3vec使用的是上下文单词来训练。本篇文章把词看做是character n-grams，使用CBOW-like的方法，在更好的训练word embedding的同时可以用来解决OOV问题。最后的实验结果表明，本文提出来的方法在POS和Similarity任务中表现的SOA。
 
 - EMNLP2018 Learning Better Internal Structure of Words for Sequence Labeling
@@ -69,7 +69,7 @@
 - EMNLP2018 Adapting Word Embeddings to New Languages with Morphological and Phonological Subword Representations
 **待完成**
 
-> Ambiguity
+> Ambiguity (#4)
  
  - ICLR2017-Multimodal Word Distributions
  
@@ -89,7 +89,7 @@
 - EMNLP2018 Leveraging Gloss Knowledge in Neural Word Sense Disambiguation by Hierarchical Co-Attention
     本文主要是利用Word Sense Disambiguation（WSD）的数据集来学习词的歧义表示。WSD数据集里面会给出歧义词想对应的词意的解释。在模型上，使用Co-attention来捕捉word和sentence的信息。实验结果在一些POS和WSD问题上表现的很好。
     
-> Ngram
+> Ngram (#4)
 
 - EMNLP2017 Ngram2vec: Learning Improved Word Representations from Ngram Co-occurrence Statistics
     文章提出了使用Ngram来训练skip-gram的word embedidng，把每个Ngram都作为一个unique的embedding，在训练word2Ngram时，不仅中心word要预测
@@ -108,7 +108,7 @@
 
     百度研究院2018的工作。在文本分类中，词袋模型有它的限制。他对单词的表示没有包含单词的顺序信息。N-gram解决了这一问题，但n-gram也有局限: 当n较大时，通常导致数据缺失。在新模型中，region embedding有两部分组成：单词本身的embedding有向量表示，联系上下文的embedding由词向量与上下文关联的矩阵表示。文本看作是region embedding的集合。在文本分类的实验中(主要是Yelp Dataset)大多数实验有提升
     
-> Transfer learning && Contextual
+> Transfer learning && Contextual (#4)
 
 - Discourse-Based Objectives for Fast Unsupervised Sentence Representation Learning
 本文使用无监督句子学习方式，迁移sentence encoder。设计了3个预训练目标来预训练已有的句子编码器（Sentence encoder），当模型经过这3个预训练后在针对目标任务进行训练
@@ -121,26 +121,35 @@
 
     大多数的Reading Comprehension论文都集中精力在Q和D的interact attention上。文章做了实验，使用Contextual表示的Q和D要在结果中表现的更好。
     
-- NAACL2018**BESTPAPER** Deep contextualized word representations (ELMO)
+- NAACL2018**BESTPAPER** [Deep contextualized word representations (ELMO)](https://arxiv.org/pdf/1802.05365.pdf)
     过往的word2vec方法是利用词语的共现来训练word embedding，它们大多没有融入上下文的信息。这一次我们利用language model(LM)的方法结合RNN+char embedding训练出来的RNN和char embedding迁移到其他下游任务中都有巨大的提升。这是一种可以利用大规模语料的无监督方法。缺点也显而易见，Contextual没有利用双向的语言信息，同时没考虑词频信息。
     Note: 建议结合论文：Dissecting Contextual Word Embeddings: Architecture and Representation来理解ELMo。
 
 - ICLR2017 Learned in Translation: Contextualized Word Vectors (CoVe)
     在Image领域，很多问题的解决得益于迁移学习。同样的想法应用在NLP领域。作者认为能理解上下文的模型是可以应用迁移学习的，比如说在机器翻译中。文章使用en2ge的翻译任务训练处encoder然后迁移到其他任务中。把CoVe用到了语义情感分析、问题分类、文本蕴含、问答等多种NLP任务上，这些模型的性能都得到了提升。
 
-> Co-occurance
+> Co-occurance (#6)
 
 - EMNLP2017 Dict2vec : Learning Word Embeddings using Lexical Dictionaries
     Word2Vec的训练方式是利用上下文的词共现来训练词。本文提出利用词典的词解释来作为共现语料训练词。文中定义了Strong Pair，意为双方的解释里都出现了对方。然后只出现一方的叫Weak Pair。结合Skip-gram来训练。本篇文章也算是提出了一种新奇的解决思路。
     
-
 - ICLR2019 CBOW IS NOT ALL YOU NEED: COMBINING CBOW WITH THE COMPOSITIONAL MATRIX SPACE MODEL
     连续词袋模型(CBOW)的一个缺点是没法掌握词序，本文提出一个新的word embedding的初始化方法和新的Loss，结合CBOW方法一起训练。最后的实验结果表明这种训练方法在大多分类和STS任务中都比CBOW要好。同时也能比其他初始化方法记住更多的信息。
 
 - EMNLP2018 Quantifying Context Overlap for Training Word Embeddings
     Word2Vec的训练方式是利用上下文的词共现来训练词，但是忽略了训练上下文词之间的语义相似度。本文在Glove上做出修改，不使用共现的次数作为损失函数，而是使用两个词之间Point-wise Mutual Information (PMI)的交集词的最小PMI值作为损失函数。实验在Word similarity and analogy results都表现的很好，同样几个分类数据集也表现的不错。(对比Glove,SGNS)
+    
+- ACL2018 SemAxis: A Lightweight Framework to Characterize Domain-Specific Word Semantics Beyond Sentiment
+    通常，语义会随着上下文语境的变化而变化。本文提出来一种新方法，把词按照近义词来聚类，两个类别之间尽量是反义，每一个类别计算出一个Semantic Axis，计算方式是，求出每个类别的中心点，然后两个类别中心点相减就可以得到一个SemAxis。词的类别是从ConceptNet选出来的729个。然后把word embedding使用cosine计算与每一个轴的相似度，组成一个新的向量。 
 
-> Others
+- IJCAI2018 Approximating Word Ranking and Negative Sampling for Word Embedding
+    一篇比较好的文章,分析了自己解决问题的思路。作者首先分析了以往的CBOW和SGNS的损失函数只是一个局部最优解。主要集中精力与解决负采样问题，作者把负采样问题看成了word rank问题，实质是一个margin negetive sampling问题，在提出rank之后又遇到大样本梯度爆炸问题。作者都文中所提出来的方法，在Analogy和similarity实验中表现很好。
+
+- IJCAI2018 Complementary Learning of Word Embeddings
+    CBOW和SGNS被认为是两个互补的任务。本文主要使用2 agent的RL,分别去学习CBOW和SGNS，Reward是预测出来的概率log值。实验在文本相似度任务上表现不错
+    
+
+> Others (#5)
 
 - ICLR2019 Adaptive Input Representations for Neural Language Modeling
 
@@ -149,16 +158,37 @@
 - ACL2018 Joint Embedding of Words and Labels for Text Classification
     文章提出来一个把word和label用在一起来表示文本的想法，融合的方法是使用attention。该想法用在分类问题中，在几个分类分体中表现的还不错。
 
+- IJCAI2018 Think Globally, Embed Locally — Locally Linear Meta-embedding of Words
+    不同的word embedding训练方法，训练出来的词向量都各自有优势，本文是想用线性fusion，来融合不同的embedding。其主要思想是：对不同的word embedding训练方法，一个客观的好坏评价是neiberhoods。所以本文认为不同embedding的neiborhoods都应该相同，但是neiborhoods内的单词应该有各自的权重。最后作者通过构造新的损失函数来完成想法。在Semantic similarity， Word analogy detection， Relation classification， Short-text classification表现的都比融入之前的方法好。
+    
+- axiv2018 GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding
+    本文介绍了NLP领域的一些基础任务的数据集和task，被称为General Language Understanding Evaluation (GLUE),并且对于一些模型通常会出现的问题做了自己的NLI数据集。在后面实验中做了些基于transfer learning的baseline，主要是elmo-like的实验，同时也在自己提出来的NLI数据集上测试，发现对比人工的结果还相差甚远。
+    
+- ICLR2019 UNDERSTANDING COMPOSITION OF WORD EMBED- DINGS VIA TENSOR DECOMPOSITION
+**难**
+
+
 ### Sentence representation (#1)
 
-> Context Information
+> Context Information (#1)
 
 - EMNLP2017 A Deep Neural Network Sentence Level Classification Method with Context Information
 
     文章主要使用了LSTM+CNN的结构，同时使用FOFE编码上下文句子来辅助句子分类任务。 这里面对的问题是，对于句子分类任务，文中把这个句子称作是Focus，其他的句子分Left、Right。 因为句子分类任务是没有上下文的，实验中作者是通过查找数据集来源，来补充上下文句子。 文章的实验主要证明了FOFE or Context信息有用。
     
 
-### Exploration experiments
+### Exploration experiments (#1)
+
+- ICLR2019 LOOKING FOR ELMO’S FRIENDS: SENTENCE-LEVEL PRETRAINING BEYOND LANGUAGE MODELING
+    用于自然语言处理任务（如翻译、问答和解析）的最先进模型都具有旨在提取每个输入句子含义和内容表征的组件。这些句子编码器组件通常直接针对目标任务进行训练。这种方法可以在数据丰富的任务上发挥作用，并在一些狭义定义的基准上达到人类水平，但它只适用于少数具有数百万训练数据样本的 NLP 任务。这引起人们对预训练句子编码的兴趣：我们有充分的理由相信，可以利用外部数据和训练信号来有效地预训练这些编码器，因为它们主要用于捕获句子含义而不是任何特定于任务的技能。并且我们已经看到了预训练方法在词嵌入和图像识别相关领域中获得的成功。
+
+    更具体地说，最近的四篇论文表明，预训练句子编码器可以在 NLP 任务上获得非常强的性能。首先，McCann 等人 (2017) 表明来自神经机器翻译系统的 BiLSTM 编码器可以在其他地方有效地重用。Howard & Ruder (2018)、Peters 等 (2018)、 Radford 等 (2018) 表明，通过生成式语言建模（LM）以无监督方式预训练的各种编码器也是有效的。然而，每篇论文都使用自己的评估方法，不清楚哪个预训练任务最有效，或者是否可以有效地组合多个预训练任务；在句子到向量编码的相关设置中，使用多个标注数据集的多任务学习已经产生了鲁棒的当前最佳结果。
+
+    本文试图系统地解决这些问题。研究者在 17 种不同的预训练任务、几个简单的基线以及这些任务的几种组合上训练可重用的句子编码器，所有这些都使用受 ELMo 扩展的单个模型架构和过程，用于预训练和迁移。然后，研究者根据 GLUE 基准测试中的 9 个目标语言理解任务评估这些编码器，他们共得到了 40 个句子编码器和 360 个已训练模型。然后，研究者测量目标任务的性能相关性，并绘制了评估训练数据量对每个预训练和目标任务的影响的学习曲线。
+
+    实验结果表明语言建模是其中最有效的一个预训练任务，预训练期间的多任务学习可以提供进一步的增益，并在固定句子编码器上得到新的当前最佳结果。然而，ELMo 式的预训练也有令人担忧的地方，研究者预训练模型并将其用于目标任务时没有进一步微调，这是脆弱的并且存在严重限制： (i) 一般的基线表征和最好的预训练编码器几乎能达到相同的表现，不同的预训练任务之间的差别可能非常小。(ii) 不同的目标任务在它们受益最多的预训练方面存在显著差异，并且多任务预训练不足以避免这个问题并提供通用的预训练编码器。
+**这篇文章摘自机器之心**
+
 
 ### RNN module (or some else like VAE)
 
