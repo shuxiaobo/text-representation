@@ -6,7 +6,7 @@
 
 ## 目录 Table of contents
 
-* [文本表示简介 Introduction to text representation](#0文本表示简介)
+* [文本表示简介 (Introduction to text representation)](#0文本表示简介-introduction-to-text-representation)
 
 * [研究领域与最新相关文章 Research latest articles by area](#1latest)
 
@@ -47,7 +47,7 @@
 
 > Subword && OOV (#5)
 
-- TACL2017-Enriching Word Vectors with Subword Information
+- TACL2017 [Enriching Word Vectors with Subword Information](https://arxiv.org/pdf/1707.06961.pdf)
     本篇文章通过建立一个 Subword 词典，来丰富word的信息，比如where的subword是<wh, whe, her, ere, re>这样的，词的表示是embedding(word) + \sum embedding(n-gram)，使用Skip-gram来训练词向量，是一个无监督训练模型。
     实验证明：
     - 在越大的数据集上，embedding的维度可以适当放大。
@@ -55,14 +55,14 @@
     - 在不同语言下都比较好用，特别是那些rich language。
     - 在句法形态评估任务上效果较为显著。
     
-- EMNLP2017 Mimicking Word Embeddings using Subword RNNs
+- EMNLP2017 [Mimicking Word Embeddings using Subword RNNs](https://arxiv.org/pdf/1707.06961.pdf)
 
     佐治亚理工的工作，很easy也很work的想法，文章主要用subword的信息来解决OOV问题训练subword的表示方法：把char embedding表示的word和pre-train的word embedding做欧式距离损失，最后直接用char embedding来表示单词本文中使用LSTM来融合char做word embedding
 
 - EMNLP2018 [Generalizing Word Embeddings using Bag of Subwords](https://arxiv.org/pdf/1809.04259.pdf)
     之前的word3vec使用的是上下文单词来训练。本篇文章把词看做是character n-grams，使用CBOW-like的方法，在更好的训练word embedding的同时可以用来解决OOV问题。最后的实验结果表明，本文提出来的方法在POS和Similarity任务中表现的SOA。
 
-- EMNLP2018 Learning Better Internal Structure of Words for Sequence Labeling
+- EMNLP2018 [pLearning Better Internal Structure of Words for Sequence Labeling](http://aclweb.org/anthology/D18-1279)
     以往的利用char embeddin模型里，没有详细的说明哪一种结构适合于不同颗粒度的表示的结合。本篇文章对比了之前的几种CNN模型，比较了他们的优缺点，并提出一种新的funnel-shaped CNN with no down-sample，这种模型可以学习到更好的句子结构表示。实验在POS,NER,Syntactic chunking中表现的非常不错。
 
 
@@ -147,7 +147,14 @@
 
 - IJCAI2018 Complementary Learning of Word Embeddings
     CBOW和SGNS被认为是两个互补的任务。本文主要使用2 agent的RL,分别去学习CBOW和SGNS，Reward是预测出来的概率log值。实验在文本相似度任务上表现不错
+
+> Negative sampling
     
+- WSDM2016 WordRank: [Learning Word Embeddings via Robust Ranking](https://aclweb.org/anthology/D16-1063)
+    本文第一次提出把word2vec的训练作为一种rank方式，使用距离作为rank的指标。思想是通过构造rank指示函数的上界 优化目标，同样使用了平滑的技术。文章对比了几种连续的可以作为rank目标的函数，结果DCG表现最好。
+
+- ACL2018 [Batch IS NOT Heavy: Learning Word Representations From All Samples](https://www.comp.nus.edu.sg/~xiangnan/papers/acl18-word-embedding.pdf)
+    对于以往的word2vec模型，都是采用负采样做损失函数，负采样的好坏决定了，学习质量。本文避开负样例的选取问题，选取所有的词作为负样例，使用PMI作为label加上回归损失的形式，同时利用数学的trick的方法解决训练时间问题。实验效果比传统的word2vec,glove在word simi和analogy要好。文章把只选取SGNS作为w2v没有CBOW 
 
 > Others (#5)
 
@@ -206,6 +213,7 @@ word2vec 作者 Tomas Mikolov
 
 3、Enriching Word Vectors with Subword Information, 2016
 
+[Process in NLP](https://nlpprogress.com/) 系统作者 Sebastian Ruder
 
 
 ## 5. 相关的硕博士论文 (Thesis)
@@ -215,7 +223,7 @@ word2vec 作者 Tomas Mikolov
 ## 7. 比赛 (Challenges and competitions)
 
 ## 8. 其他 (Miscellaneous)
-
+[Transfer learning with language model 20181031](https://drive.google.com/file/d/1kmNAwrSlFYo0cN_DcURMOArBwe9FxWxR/view)：Ruder在一次meetup上面讲的关于LM的内容，包括对现在LM的分析和未来的展望。
 
 
 
