@@ -151,10 +151,10 @@
 > Negative sampling
     
 - WSDM2016 WordRank: [Learning Word Embeddings via Robust Ranking](https://aclweb.org/anthology/D16-1063)
-    本文第一次提出把word2vec的训练作为一种rank方式，使用距离作为rank的指标。思想是通过构造rank指示函数的上界 优化目标，同样使用了平滑的技术。文章对比了几种连续的可以作为rank目标的函数，结果DCG表现最好。
+    本文第一次提出把word2vec的训练作为一种rank方式，使用距离作为rank的指标。思想是通过构造rank指示函数的上界优化目标，同样使用了平滑的技术。文章对比了几种连续的可以作为rank目标的函数，结果DCG表现最好。
 
 - ACL2018 [Batch IS NOT Heavy: Learning Word Representations From All Samples](https://www.comp.nus.edu.sg/~xiangnan/papers/acl18-word-embedding.pdf)
-    对于以往的word2vec模型，都是采用负采样做损失函数，负采样的好坏决定了，学习质量。本文避开负样例的选取问题，选取所有的词作为负样例，使用PMI作为label加上回归损失的形式，同时利用数学的trick的方法解决训练时间问题。实验效果比传统的word2vec,glove在word simi和analogy要好。文章把只选取SGNS作为w2v没有CBOW 
+    对于以往的word2vec模型，都是采用负采样做损失函数，负采样的好坏决定了，学习质量。本文避开负样例的选取问题，选取所有的词作为负样例，使用PMI作为label加上回归损失的形式，同时利用数学的trick的方法解决训练时间问题。实验效果比传统的word2vec,glove在word simi和analogy要好。文章把只选取SGNS作为w2v没有CBOW
 
 > Others (#5)
 
