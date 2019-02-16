@@ -206,14 +206,15 @@
 ## 3. 相关代码 (Available codes)
 
 ## 4. 文本表示领域代表性研究学者 (Scholars)
-word2vec 作者 Tomas Mikolov
-1、Efficient Estimation of Word Representation in Vector Space, 2013
+**word2vec 作者 Tomas Mikolov**
 
-2、Distributed Representations of Sentences and Documents, 2014
+    1、Efficient Estimation of Word Representation in Vector Space, 2013
+    
+    2、Distributed Representations of Sentences and Documents, 2014
+    
+    3、Enriching Word Vectors with Subword Information, 2016
 
-3、Enriching Word Vectors with Subword Information, 2016
-
-[Process in NLP](https://nlpprogress.com/) 系统作者 Sebastian Ruder
+**[Process in NLP](https://nlpprogress.com/) 系统作者 Sebastian Ruder**
 
 
 ## 5. 相关的硕博士论文 (Thesis)
