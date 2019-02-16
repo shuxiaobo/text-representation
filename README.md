@@ -223,6 +223,33 @@
 
 ## 7. 比赛 (Challenges and competitions)
 
+###In Process
+1. Google AI of Kaggle: [Gendered Pronoun Resolution](https://www.kaggle.com/c/gendered-pronoun-resolution)
+        Timeline: April 8, 2019 - Entry deadline. You must accept the competition rules before this date in order to compete.
+    
+    April 8, 2019 - Team Merger deadline. This is the last day participants may join or merge teams.
+    
+    April 15, 2019 - Stage 1 Submission & Model upload deadline*
+    
+    April 16, 2019 - Stage 2 begins. New test set uploaded.
+    
+    April 22, 2019 - Stage 2 ends & Final submission deadline. Stage 2 final submissions selection must be completed by this date.
+    
+    May 3, 2019 - Description Paper Submission deadline.** Winners Obligations deadline.
+    
+    May 24, 2019 - Description Paper Reviews and Acceptance announcements.
+    
+    June 7, 2019 - Camera-ready Papers deadline.
+    
+    August 2, 2019 - ACL (Association for Computational Linguistics) 2019 Workshop on Gender Bias in Natural Language Processing.
+    代词性别消歧任务，给一个句子，包含两个实体名称一个代词，区别这个代词所指向的实体。
+
+###Over
+
+
+### To Go
+1. NLPCC (TBD)
+
 ## 8. 其他 (Miscellaneous)
 [Transfer learning with language model 20181031](https://drive.google.com/file/d/1kmNAwrSlFYo0cN_DcURMOArBwe9FxWxR/view)：Ruder在一次meetup上面讲的关于LM的内容，包括对现在LM的分析和未来的展望。
 
