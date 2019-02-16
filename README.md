@@ -223,7 +223,7 @@
 
 ## 7. 比赛 (Challenges and competitions)
 
-###In Process
+### In Process
 1. Google AI of Kaggle: [Gendered Pronoun Resolution](https://www.kaggle.com/c/gendered-pronoun-resolution)
         Timeline: April 8, 2019 - Entry deadline. You must accept the competition rules before this date in order to compete.
     
@@ -244,7 +244,7 @@
     August 2, 2019 - ACL (Association for Computational Linguistics) 2019 Workshop on Gender Bias in Natural Language Processing.
     代词性别消歧任务，给一个句子，包含两个实体名称一个代词，区别这个代词所指向的实体。
 
-###Over
+### Over
 
 
 ### To Go
