@@ -57,7 +57,7 @@
     
 - EMNLP2017 [Mimicking Word Embeddings using Subword RNNs](https://arxiv.org/pdf/1707.06961.pdf)
 
-    佐治亚理工的工作，很easy也很work的想法，文章主要用subword的信息来解决OOV问题训练subword的表示方法：把char embedding表示的word和pre-train的word embedding做欧式距离损失，最后直接用char embedding来表示单词本文中使用LSTM来融合char做word embedding
+    佐治亚理工的工作，很easy也很work的想法，文章主要用subword的信息来解决OOV问题训练subword的表示方法：把char embedding表示的word和pre-train的word embedding做欧式距离损失，最后直接用char embedding来表示单词本文中使用LSTM来融合char做word embedding。
 
 - EMNLP2018 [Generalizing Word Embeddings using Bag of Subwords](https://arxiv.org/pdf/1809.04259.pdf)
     之前的word3vec使用的是上下文单词来训练。本篇文章把词看做是character n-grams，使用CBOW-like的方法，在更好的训练word embedding的同时可以用来解决OOV问题。最后的实验结果表明，本文提出来的方法在POS和Similarity任务中表现的SOA。
@@ -82,7 +82,7 @@
     - 歧义的多少与词意的改变正相关
     - 词在相应类别中的代表性与词意改变负相关
     
-- ICLR2017 [Beyond Bilingual: Multi-sense Word Embeddings using Multilingual Context](http://www.aclweb.org/anthology/W17-2613)
+- ACL2017 [Beyond Bilingual: Multi-sense Word Embeddings using Multilingual Context](http://www.aclweb.org/anthology/W17-2613)
     
     过往的一词多义问题通过context来进行解决。近来也有学者发现使用多语言解决一词多义问题，因为对于相同单词不同含义在其他语言中可能对应着不同的单词，但是之前的方法大多存在固定一个多义词含义数量的问题。本文通过multi-view Bayesian non-parametric方法在多语言上解决之前的限制。
     
@@ -95,7 +95,7 @@
     文章提出了使用Ngram来训练skip-gram的word embedidng，把每个Ngram都作为一个unique的embedding，在训练word2Ngram时，不仅中心word要预测
     周边的Ngram，同时也要预测周边的word。Ngram2Ngram相同。实验对比了word和Ngram的不同组合形式(Ngram2Ngram相同, )训练出来的Ngram embedding，
     还有使用不同的训练方法训练出来的embedding包括SGNS, GloVe, PPMI, and SVD
-    实验结果在word similarity和analogy表明，Ngram训练是有优势的，同时在neiberhoods中，ngram同样可以学习出近义词，甚至学的更好
+    实验结果在word similarity和analogy表明，Ngram训练是有优势的，同时在neiberhoods中，ngram同样可以学习出近义词，甚至学的更好。
 
 - ENMLP2017 [Nonsymbolic Text Representation](https://arxiv.org/pdf/1610.00479.pdf)
     文章主要是做了一个探索性的实验，目的是证明，在不用空格分词的情况下，在某些实验上也能得到还可以的表现。
@@ -106,7 +106,7 @@
     
 - ICLR2018 [A NEW METHOD OF REGION EMBEDDING FOR TEXT CLASSIFICATION](https://openreview.net/pdf?id=BkSDMA36Z)
 
-    百度研究院2018的工作。在文本分类中，词袋模型有它的限制。他对单词的表示没有包含单词的顺序信息。N-gram解决了这一问题，但n-gram也有局限: 当n较大时，通常导致数据缺失。在新模型中，region embedding有两部分组成：单词本身的embedding有向量表示，联系上下文的embedding由词向量与上下文关联的矩阵表示。文本看作是region embedding的集合。在文本分类的实验中(主要是Yelp Dataset)大多数实验有提升
+    百度研究院2018的工作。在文本分类中，词袋模型有它的限制。他对单词的表示没有包含单词的顺序信息。N-gram解决了这一问题，但n-gram也有局限: 当n较大时，通常导致数据缺失。在新模型中，region embedding有两部分组成：单词本身的embedding有向量表示，联系上下文的embedding由词向量与上下文关联的矩阵表示。文本看作是region embedding的集合。在文本分类的实验中(主要是Yelp Dataset)大多数实验有提升。
     
 > Transfer learning && Contextual (#4)
 
@@ -137,7 +137,7 @@
     连续词袋模型(CBOW)的一个缺点是没法掌握词序，本文提出一个新的word embedding的初始化方法和新的Loss，结合CBOW方法一起训练。最后的实验结果表明这种训练方法在大多分类和STS任务中都比CBOW要好。同时也能比其他初始化方法记住更多的信息。
 
 - EMNLP2018 [Quantifying Context Overlap for Training Word Embeddings](http://aclweb.org/anthology/D18-1057)
-    Word2Vec的训练方式是利用上下文的词共现来训练词，但是忽略了训练上下文词之间的语义相似度。本文在Glove上做出修改，不使用共现的次数作为损失函数，而是使用两个词之间Point-wise Mutual Information (PMI)的交集词的最小PMI值作为损失函数。实验在Word similarity and analogy results都表现的很好，同样几个分类数据集也表现的不错。(对比Glove,SGNS)
+    Word2Vec的训练方式是利用上下文的词共现来训练词，但是忽略了训练上下文词之间的语义相似度。本文在Glove上做出修改，不使用共现的次数作为损失函数，而是使用两个词之间Point-wise Mutual Information (PMI)的交集词的最小PMI值作为损失函数。实验在Word similarity and analogy results都表现的很好，同样几个分类数据集也表现的不错。(对比Glove,SGNS)。
     
 - ACL2018 [SemAxis: A Lightweight Framework to Characterize Domain-Specific Word Semantics Beyond Sentiment](https://arxiv.org/pdf/1806.05521.pdf)
     通常，语义会随着上下文语境的变化而变化。本文提出来一种新方法，把词按照近义词来聚类，两个类别之间尽量是反义，每一个类别计算出一个Semantic Axis，计算方式是，求出每个类别的中心点，然后两个类别中心点相减就可以得到一个SemAxis。词的类别是从ConceptNet选出来的729个。然后把word embedding使用cosine计算与每一个轴的相似度，组成一个新的向量。 
@@ -146,7 +146,16 @@
     一篇比较好的文章,分析了自己解决问题的思路。作者首先分析了以往的CBOW和SGNS的损失函数只是一个局部最优解。主要集中精力与解决负采样问题，作者把负采样问题看成了word rank问题，实质是一个margin negetive sampling问题，在提出rank之后又遇到大样本梯度爆炸问题。作者都文中所提出来的方法，在Analogy和similarity实验中表现很好。
 
 - IJCAI2018 [Complementary Learning of Word Embeddings](https://www.ijcai.org/proceedings/2018/0607.pdf)
-    CBOW和SGNS被认为是两个互补的任务。本文主要使用2 agent的RL,分别去学习CBOW和SGNS，Reward是预测出来的概率log值。实验在文本相似度任务上表现不错
+    CBOW和SGNS被认为是两个互补的任务。本文主要使用2 agent的RL,分别去学习CBOW和SGNS，Reward是预测出来的概率log值。实验在文本相似度任务上表现不错。
+    
+- NAACL2015 [Two/Too Simple Adaptations of Word2Vec for Syntax Problems](http://www.cs.cmu.edu/~lingwang/papers/naacl2015.pdf)
+
+    文章对CBOW和SG模型做了位置相关的修改，在CBOW上，采用stack上下文单词的方法替代SUM。在SG上，在窗口内，采用每个单词单独一个映射矩阵的方法来预测输出。最后的实验结果表明，有一点点的提高在POS和DP上。
+
+- NIPS2014 [Neural Word Embedding as Implicit Matrix Factorization](https://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization.pdf)
+
+    Omer Levy和Yoav Goldberg的工作，文章对word2vec方法进行了理论性的分析，证明的结论是word2vec实质上是对word-context PMI矩阵的分解。文章的公式还算好懂，[参考文章](http://www.readventurer.com/?p=755#comment-2286㜹)，最近两年有许多利用PMI来改进word2vec方法的。
+
 
 > Negative sampling
     
@@ -155,6 +164,10 @@
 
 - ACL2018 [Batch IS NOT Heavy: Learning Word Representations From All Samples](https://www.comp.nus.edu.sg/~xiangnan/papers/acl18-word-embedding.pdf)
     对于以往的word2vec模型，都是采用负采样做损失函数，负采样的好坏决定了，学习质量。本文避开负样例的选取问题，选取所有的词作为负样例，使用PMI作为label加上回归损失的形式，同时利用数学的trick的方法解决训练时间问题。实验效果比传统的word2vec,glove在word simi和analogy要好。文章把只选取SGNS作为w2v没有CBOW
+
+- WSDM2017 [Improving Negative Sampling for Word Representation using Self-embedded Features](https://arxiv.org/pdf/1710.09805.pdf)
+
+    对于正常的频率负采样方法，不包含语义信息，文章从梯度和实例上证明这样的方法存在缺陷。文章的改进办法是里用取embedding最近的几个词向量来做负样例。同时文章也提出了a fast adaptive and feature-dependent sampling algorithm进行采样。实验结果在word similarity上对比CBOW和SG提升了不少。
 
 > Others (#5)
 
@@ -174,6 +187,11 @@
 - ICLR2019 UNDERSTANDING COMPOSITION OF WORD EMBED- DINGS VIA TENSOR DECOMPOSITION
 **难**
 
+- ACL 2017 [Skip-Gram – Zipf + Uniform = Vector Additivity Alex](http://www.aclweb.org/anthology/P17-1007)
+    
+    本文实际上证明的是单词分布在满足Uniform分布时用Skip-Gram模型训练出来的词向量具有Vector Additivity的性质(比如“man” - “woman” = “king” - “queen”)。而实际上我们的单词是满足Zipf分布的，所以这篇文章的证明其实和实际是不符合的，但是确实解释了词向量的一些性质。
+词向量作为Deep Learning for NLP的基石已经是广为人熟知了，它的本质是认为如果两个词的上下文是一样的，那么可以认为这两个词是一样的。Mikolov在13年提出word2vec的时候写出了惊艳的等式“man” - “woman” = “king” - “queen”，也就是说将两个词向量相加得到一个向量，与这个向量最接近的词向量所代表的单词的意思往往是这个两个词意思的组合。这是一个很有意义的结论，也就是词向量将语义映射到了欧式空间。这样我们就可以用欧式空间的度量来衡量语义。在Standford CS224n课程中就有一个小插曲。如下图所示这里的tie可能表示球赛的平局，也可能表示领带，还可能表示绳子打结。那它的词向量究竟在哪里呢？虽然相似的词被映射到邻近的位置，但该论文证明词向量是所有义项的平均。
+
 
 ### Sentence representation (#1)
 
@@ -183,6 +201,20 @@
 
     文章主要使用了LSTM+CNN的结构，同时使用FOFE编码上下文句子来辅助句子分类任务。 这里面对的问题是，对于句子分类任务，文中把这个句子称作是Focus，其他的句子分Left、Right。 因为句子分类任务是没有上下文的，实验中作者是通过查找数据集来源，来补充上下文句子。 文章的实验主要证明了FOFE or Context信息有用。
     
+> Multi-task learning
+
+- ICML2008 [A Unified Architecture for Natural Language Processing: Deep Neural Networks with Multitask Learning](https://ronan.collobert.com/pub/matos/2008_nlp_icml.pdf)
+    
+    本文是第一个用DNN的方法训练多任务学习，将language model, pos-tag, NER, chunk, SRL（Semantic Role Labeling ）统一到一个框架中，最终利用language model, pos-tag, NER, chunk等任务中自动学习的feature来提升SRL的性能，实验结果与state-of-the-art相当。
+
+- Arxiv 2018 [Multi-Task Deep Neural Networks for Natural Language Understanding Xiaodong](https://arxiv.org/pdf/1901.11504.pdf)
+    本文是MSRA的文章，没有什么特别的创新点，利用了BERT的预训练，加上分类任务，文本相似性任务，句子对分类任务，做多任务学习。在多数任务中表现良好。
+    
+- Arxiv 2018 [Discourse-Based Objectives for Fast Unsupervised Sentence Representation Learning Yacine](https://arxiv.org/pdf/1705.00557.pdf)
+
+    本文通过设置三个句子无监督任务来进行预训练：1.句子顺序是否正确。2. 是否是当前句子的下一句。3.预测句子之间的连接词。模型没有创新，实验在文本分类中表现良好。训练时间更少些。
+
+
 
 ### Exploration experiments (#1)
 
@@ -202,6 +234,18 @@
 
 ## 2. 理论与综述文章(Theoretical and survey papers)
 
+- [Word Embeddings: A Survey](https://arxiv.org/pdf/1901.09069.pdf)
+    
+    这篇综述把word embedding从两个解决问题的方面来分，两个方面又分了主要问题和解决方式
+    1. 基于预测的模型
+        1. 问题：训练时间长
+            1. negative sampling
+            2. hierachical softmax
+            3. 前后位置的单词提升收敛速度
+        2. 问题：频率问题
+    2. 基于count共现矩阵的模型
+        1. 问题：频率问题
+    文章发在了arxiv上，文章只写了10页，还有很多工作没有总结在上面。
 
 ## 3. 相关代码 (Available codes)
 
@@ -249,6 +293,14 @@
 
 ### To Go
 1. NLPCC (TBD)
+2. [2019语言与智能技术竞赛---百度&CCF](http://lic2019.ccf.org.cn/)
+
+    Registration Begin: **Now**
+    Time Begin: **April 1**
+    本届比赛设立了三个任务：
+    1. 机器阅读理解任务：让机器阅读文本然后回答和阅读内容相关的问题， 阅读理解旨在使机器具备理解自然语言的能力。
+    2. 知识驱动对话：知识驱动对话是一种人机对话任务，机器根据知识信息构建的图谱进行主动聊天， 旨在使机器具备模拟人类用语言进行信息传递的能力。
+    3. 信息抽取任务：信息抽取是指从自然语言文本中抽取实体、属性、关系等信息， 旨在使机器具备从海量文本自动构建知识的能力。
 
 ## 8. 其他 (Miscellaneous)
 [Transfer learning with language model 20181031](https://drive.google.com/file/d/1kmNAwrSlFYo0cN_DcURMOArBwe9FxWxR/view)：Ruder在一次meetup上面讲的关于LM的内容，包括对现在LM的分析和未来的展望。
