@@ -65,6 +65,14 @@
 - EMNLP2018 [pLearning Better Internal Structure of Words for Sequence Labeling](http://aclweb.org/anthology/D18-1279)
     以往的利用char embeddin模型里，没有详细的说明哪一种结构适合于不同颗粒度的表示的结合。本篇文章对比了之前的几种CNN模型，比较了他们的优缺点，并提出一种新的funnel-shaped CNN with no down-sample，这种模型可以学习到更好的句子结构表示。实验在POS,NER,Syntactic chunking中表现的非常不错。
 
+- ACL2018 [Compositional Representation of Morphologically-Rich Input for Neural Machine Translation](http://www.aclweb.org/anthology/P18-2049)
+    
+    本文主要提出来使用triple-char 过 rnn的表示作为subword的表示方法比LMVR, BPE效果在translation表现的更好。
+    
+- AAAI2019 [Learning Semantic Representations for Novel Words: Leveraging Both Form and Context
+Timo](https://arxiv.org/abs/1811.03866.pdf)
+
+    本文主要通过预训练用来解决OOV问题，通过char n-gram和word context分别做简单的平均来求得最后的词表示，损失采用pre-train的word embedding做MSE损失。
 
 - EMNLP2018 [Adapting Word Embeddings to New Languages with Morphological and Phonological Subword Representations](https://arxiv.org/pdf/1808.09500.pdf)
 **待完成**
@@ -168,6 +176,11 @@
 - WSDM2017 [Improving Negative Sampling for Word Representation using Self-embedded Features](https://arxiv.org/pdf/1710.09805.pdf)
 
     对于正常的频率负采样方法，不包含语义信息，文章从梯度和实例上证明这样的方法存在缺陷。文章的改进办法是里用取embedding最近的几个词向量来做负样例。同时文章也提出了a fast adaptive and feature-dependent sampling algorithm进行采样。实验结果在word similarity上对比CBOW和SG提升了不少。
+    
+- ACL 2018 [GNEG: Graph-Based Negative Sampling for word2vec](http://www.aclweb.org/anthology/P18-2090)
+    
+    本文利用Graph来解决频率负采样无法包含采样语义的问题。通过构建词语共现图，然后random walk来挑选负采样单词。结果在训练时间和sim, analogy任务上都有提升。
+    
 
 > Others (#5)
 
